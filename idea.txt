@@ -3,4 +3,6 @@ Syntax:
   yourName: idea (description)
   otherName: idea2 (description2)
   
-  
+  Steve: messenger app (1 server + many client = chat with each other, maybe implement sending pictures)
+  Steve: rent a girlfriend or rate m,y girlfriend app
+  Steve: 
