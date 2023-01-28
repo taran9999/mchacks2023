@@ -26,24 +26,46 @@ def send_text(txt_box, msg):
 
 
 window = tk.Tk()
-window.title("bigboi")
+window.title("Chat")
 window.geometry('400x300')
 
-bottomFrame = Frame(window)
-bottomFrame.pack(side=BOTTOM)
 
 
-b1= tk.Button(bottomFrame,text= "send", command= lambda: send_text(text_box, messages))
-b1.pack(side=BOTTOM)
+
+# label1 = tk.Label(master=frame, text="I'm at (0, 0)", bg="red")
+# label1.place(x=335, y=250)
+
+#side chat buttons
+chat_1 = tk.Button(text= "Chat 0").grid(row=0)
+chat_2 = tk.Button(text= "Chat 1").grid(row=1)
+chat_3 = tk.Button(text= "Chat 2").grid(row=2)
+chat_4 = tk.Button(text= "Chat 3").grid(row=3)
+chat_5 = tk.Button(text= "Chat 4").grid(row=4)
+chat_6 = tk.Button(text= "Chat 5").grid(row=5)
+chat_7 = tk.Button(text= "Chat 7").grid(row=6)
+chat_8 = tk.Button(text= "Chat 8").grid(row=7)
+chat_9 = tk.Button(text= "Chat 9").grid(row=8)
+chat_10 = tk.Button(text= "Chat 10").grid(row=9)
 
 
-#delete button
-b2 = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
-b2.pack()
+#text field
+# text_box = tk.Text().grid(row=1,column=0)
 
 
-text_box = tk.Text()
-text_box.pack()
+
+
+send = tk.Button(text= "send", command= lambda: send_text(text_box, messages))
+# b1.place(x=320, y=240)
+# 
+# 
+# #delete button
+delete = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
+# b2.place(x=320,y=270)
+# 
+# 
+
+
+# text_box.place(x=0,y=0)
 
 #issue with printing the name of textfield
 
