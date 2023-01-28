@@ -1,0 +1,6 @@
+Brainstorm here:
+Syntax:
+  yourName: idea (description)
+  otherName: idea2 (description2)
+  
+  
