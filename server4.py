@@ -32,7 +32,6 @@ listens for 100 active connections. This number can be
 increased as per convenience.
 """
 server.listen(100)
-
 list_of_clients = []
 
 def clientthread(conn, addr):
@@ -42,22 +41,28 @@ def clientthread(conn, addr):
 
 	while True:
 			try:
-				message = conn.recv(2048)
+
+				message = conn.recv(2048).decode()
+
+
 				if message:
 
 					"""prints the message and address of the
 					user who just sent the message on the server
 					terminal"""
-					print ("<" + addr[0] + "> " + message)
+					#print("<" + addr[0] + "> " + message)
+
 
 					# Calls broadcast function to send message to all
 					message_to_send = "<" + addr[0] + "> " + message
+					print(message)
 					broadcast(message_to_send, conn)
 
 				else:
 					"""message may have no content if the connection
 					is broken, in this case we remove the connection"""
 					remove(conn)
+					print("removed")
 
 			except:
 				continue
@@ -69,12 +74,14 @@ def broadcast(message, connection):
 	for clients in list_of_clients:
 		if clients!=connection:
 			try:
-				clients.send(message)
+				encodedMessage = str.encode(message)
+				clients.send(encodedMessage)
 			except:
 				clients.close()
 
 				# if the link is broken, we remove the client
 				remove(clients)
+				print("error with link removing client")
 
 """The following function simply removes the object
 from the list that was created at the beginning of
