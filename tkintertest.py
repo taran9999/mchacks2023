@@ -1,4 +1,4 @@
-
+#figure out how to make it so text field doesnt take up entire screen
 import tkinter as tk
 
 messages = []
@@ -47,7 +47,9 @@ chat_8 = tk.Button(text= "Chat 8").grid(row=7)
 chat_9 = tk.Button(text= "Chat 9").grid(row=8)
 chat_10 = tk.Button(text= "Chat 10").grid(row=9)
 
-
+frame= tk.Frame(window, width=30, height=10)
+tbox1 = tk.Text(frame)
+tbox1.place(x=50, y=50, height=10, width=10)
 #text field
 # text_box = tk.Text().grid(row=1,column=0)
 
