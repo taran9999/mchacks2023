@@ -1,5 +1,7 @@
 # Python program to implement server side of chat room.
 import socket
+import traceback
+
 import select
 import sys
 '''Replace "thread" with "_thread" for python 3'''
@@ -42,7 +44,7 @@ def clientthread(conn, addr):
 	while True:
 			try:
 
-				message = conn.recv(2048).decode()
+				message = conn.recv(2048).decode().strip()
 
 
 				if message:
@@ -50,13 +52,12 @@ def clientthread(conn, addr):
 					"""prints the message and address of the
 					user who just sent the message on the server
 					terminal"""
-					#print("<" + addr[0] + "> " + message)
+					print("<" + addr[0] + "> " + message)
 
 
 					# Calls broadcast function to send message to all
 					message_to_send = "<" + addr[0] + "> " + message
-					print(message)
-					broadcast(message_to_send, conn)
+					broadcast(message, conn)
 
 				else:
 					"""message may have no content if the connection
@@ -65,6 +66,7 @@ def clientthread(conn, addr):
 					print("removed")
 
 			except:
+				traceback.print_stack()
 				continue
 
 """Using the below function, we broadcast the message to all
