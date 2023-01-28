@@ -1,3 +1,4 @@
+
 import tkinter as tk
 
 def print_test():
@@ -31,11 +32,13 @@ b2.pack()
 text_box = tk.Text()
 text_box.pack()
 
+#issue with printing the name of textfield
 
 
 # text_box.get("1.0")
 
 top.mainloop()
+print(name)
 
 
 
