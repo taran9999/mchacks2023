@@ -1,6 +1,9 @@
 
 import tkinter as tk
 
+messages = []
+
+
 def print_test():
     print("hello")
     
@@ -9,23 +12,33 @@ def get_text(txt_box):
 
 def del_button(txt_box):
     txt_box.delete("1.0", tk.END)
+    
+def send_text(txt_box, msg):
+    #adds each text that is sent via send button to list
+    messages.append(txt_box.get("1.0",tk.END))
+    print(messages)
+    print(messages[0])
+    del_button(txt_box)
+    
 
 #FIGURE OUT HOW TO ALIGN/FORMAT BUTTONS
 
 
 
-top = tk.Tk()
-top.title("bigboi")
-top.geometry('400x300')
+window = tk.Tk()
+window.title("bigboi")
+window.geometry('400x300')
+
+bottomFrame = Frame(window)
+bottomFrame.pack(side=BOTTOM)
 
 
-
-# b1= tk.Button(top, text= "print", command= lambda t= "Button-1 Clicked": get_text(text_box))
-# b1.pack()
+b1= tk.Button(bottomFrame,text= "send", command= lambda: send_text(text_box, messages))
+b1.pack(side=BOTTOM)
 
 
 #delete button
-b2 = tk.Button(top, text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
+b2 = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
 b2.pack()
 
 
@@ -37,8 +50,8 @@ text_box.pack()
 
 # text_box.get("1.0")
 
-top.mainloop()
-print(name)
+window.mainloop()
+
 
 
 
@@ -55,7 +68,7 @@ print(name)
 # button.pack()
 # entry.pack()
 # 
-# b1= tk.Button(top, text= "Button-1", command= lambda t= "Button-1 Clicked": print_test())
+# b1= tk.Button(window, text= "Button-1", command= lambda t= "Button-1 Clicked": print_test())
 # b1.pack()
 # 
 # entry.insert(0,"python")
