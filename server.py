@@ -26,7 +26,10 @@ def handle(client):
         try:
             message = client.recv(1024).decode().strip()
 
-            if message == '/classify':
+            if message[0] == '/' and len(messages) == 0:
+                message = 'There are no messages to call the command on'
+                broadcast(message.encode())
+            elif message == '/classify':
                 classify = cohereBot.classification(messages[-1])
                 client.send(classify.encode())
             else:
