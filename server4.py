@@ -45,7 +45,6 @@ def clientthread(conn, addr):
 	conn.send("Welcome to this chatroom!".encode())
 
 	while True:
-			try:
 
 				message = conn.recv(2048).decode().strip()
 
@@ -68,9 +67,9 @@ def clientthread(conn, addr):
 					remove(conn)
 					print("removed")
 
-			except:
-				traceback.print_stack()
-				continue
+			# except:
+			# 	traceback.print_stack()
+			# 	continue
 
 """Using the below function, we broadcast the message to all
 clients who's object is not the same as the one sending
@@ -78,15 +77,14 @@ the message """
 def broadcast(message, connection):
 	for clients in list_of_clients:
 		if clients!=connection:
-			try:
 				encodedMessage = str.encode(message)
 				clients.send(encodedMessage)
-			except:
-				clients.close()
+			# except:
+			# 	clients.close()
 
-				# if the link is broken, we remove the client
-				remove(clients)
-				print("error with link removing client")
+			# 	# if the link is broken, we remove the client
+			# 	remove(clients)
+			# 	print("error with link removing client")
 
 """The following function simply removes the object
 from the list that was created at the beginning of
