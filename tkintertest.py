@@ -27,7 +27,7 @@ def send_text(txt_box, msg):
 
 window = tk.Tk()
 window.title("Chat")
-window.geometry('400x300')
+window.geometry('400x400')
 
 
 
@@ -36,35 +36,58 @@ window.geometry('400x300')
 # label1.place(x=335, y=250)
 
 #side chat buttons
-chat_1 = tk.Button(text= "Chat 0").grid(row=0)
-chat_2 = tk.Button(text= "Chat 1").grid(row=1)
-chat_3 = tk.Button(text= "Chat 2").grid(row=2)
-chat_4 = tk.Button(text= "Chat 3").grid(row=3)
-chat_5 = tk.Button(text= "Chat 4").grid(row=4)
-chat_6 = tk.Button(text= "Chat 5").grid(row=5)
-chat_7 = tk.Button(text= "Chat 7").grid(row=6)
-chat_8 = tk.Button(text= "Chat 8").grid(row=7)
-chat_9 = tk.Button(text= "Chat 9").grid(row=8)
-chat_10 = tk.Button(text= "Chat 10").grid(row=9)
+chat_1 = tk.Button(text= "Chat 1")
+chat_1.place(x=0, y=0, height = 50, width = 100)
 
-frame= tk.Frame(window, width=30, height=10)
-tbox1 = tk.Text(frame)
-tbox1.place(x=50, y=50, height=10, width=10)
+chat_2 = tk.Button(text= "Chat 2")
+chat_2.place(x=0, y=50, height = 50, width = 100)
+
+chat_3 = tk.Button(text= "Chat 3")
+chat_3.place(x=0, y=100, height = 50, width = 100)
+
+chat_4 = tk.Button(text= "Chat 4")
+chat_4.place(x=0, y=150, height = 50, width = 100)
+
+chat_5 = tk.Button(text= "Chat 5")
+chat_5.place(x=0, y=200, height = 50, width = 100)
+
+chat_6 = tk.Button(text= "Chat 6")
+chat_6.place(x=0, y=250, height = 50, width = 100)
+
+chat_7 = tk.Button(text= "Chat 7")
+chat_7.place(x=0, y=300, height = 50, width = 100)
+
+chat_8 = tk.Button(text= "Chat 8")
+chat_8.place(x=0, y=350, height = 50, width = 100)
+
+# chat_2 = tk.Button(text= "Chat 1").grid(row=1)
+# chat_3 = tk.Button(text= "Chat 2").grid(row=2)
+# chat_4 = tk.Button(text= "Chat 3").grid(row=3)
+# chat_5 = tk.Button(text= "Chat 4").grid(row=4)
+# chat_6 = tk.Button(text= "Chat 5").grid(row=5)
+# chat_7 = tk.Button(text= "Chat 7").grid(row=6)
+# chat_8 = tk.Button(text= "Chat 8").grid(row=7)
+# chat_9 = tk.Button(text= "Chat 9").grid(row=8)
+# chat_10 = tk.Button(text= "Chat 10").grid(row=9)
+
+# frame= tk.Frame(window, width=30, height=10)
+# tbox1 = tk.Text(frame)
+# tbox1.place(x=50, y=50, height=10, width=10)
 #text field
-# text_box = tk.Text().grid(row=1,column=0)
+text_box = tk.Text()
+text_box.place(x=100, y=0, height = 350, width = 300)
 
 
+delete = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
+delete.place(x=200, y=350, height = 50, width = 100)
 
+# delete.place(x=300,y=350, height = 50, width = 100)
 
 send = tk.Button(text= "send", command= lambda: send_text(text_box, messages))
-# b1.place(x=320, y=240)
-# 
-# 
-# #delete button
-delete = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
-# b2.place(x=320,y=270)
-# 
-# 
+send.place(x=300, y=350, height = 50, width = 100)
+
+# send.place(x=200, y=350, height = 50, width = 100)
+
 
 
 # text_box.place(x=0,y=0)
