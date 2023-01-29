@@ -26,7 +26,7 @@ def send_text(sender_txt, show_txt, msg):
     time = now.strftime("%H:%M:%S")
     #adds each text that is sent via send button to list
     messages.append(sender_txt.get("1.0",tk.END))
-    show_txt.insert(tk.END,messages[len(messages)-1] + time + "\n")
+    show_txt.insert(tk.END,time + " " + messages[len(messages)-1])
     print(messages)
     print(messages[0])
     del_button(sender_txt)
