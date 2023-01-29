@@ -30,8 +30,20 @@ def classification(prompt):
 #classification("I mean I can wait to do them if that's what you wanna")
 
 def summarize(prompt):
-  response = co.generate(model='xlarge', prompt=prompt, max_tokens=40, temperature=0.8)
+  buffer_prompt = f"""Jake: Hey Vincent how are you? \n Vincent: I\'m good, how are you? \n Jake: I just finished walking my dog at 4pm, he seemed really happy which made me happy too \n Vincent: Wow!
+  Summary: Jake greets Vincent and tells him about walking his happy dog. Vincent is excited.
+  -- 
+  Taran: Hey, did you want to meet up before class today? \n Steve: Yeah, sure. When were you thinking? \n Taran: Maybe about 3pm, before math class \n Steve: Sure, do you want to get lunch first? \n Taran: Yeah
+  Summary: Taran and Steve decide to meet up and get lunch together before math class.
+  --
+  Mike: Hey, I need help on this physics question. \n George: What have you tried so far? \n Mike: I set the static energy equal to the kinetic energy. \n George: Bro that's so wrong I don't know how to help you.
+  Summary: Mike asks George for help on a physics question but George is unable to help.
+  --
+  
+  """
+  bot_prompt = buffer_prompt + prompt + "\nSummary: "
+  response = co.generate(model='xlarge', prompt=bot_prompt, max_tokens=50, temperature=0.8, end_sequences=["--"])
   return response.generations[0].text
 
 
-print(summarize('Jake: Hey Vincent how are you? \n Vincent: I\'m good, how are you? \n Jake: I just finished walking my dog at 4pm, he seemed really happy which made me happy too \n Vincent: Wow1'))
+print(summarize('Jake: Hey Vincent how are you? \n Vincent: I\'m good, how are you? \n Jake: I just finished walking my dog at 4pm, he seemed really happy which made me happy too \n Vincent: Wow!'))
