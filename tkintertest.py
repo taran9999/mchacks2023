@@ -1,4 +1,6 @@
-#figure out how to make it so text field doesnt take up entire screen
+#later on make gui responsive and resizable
+#chat side buttons to go to new pages
+
 import tkinter as tk
 from datetime import datetime
 
@@ -30,6 +32,15 @@ def send_text(sender_txt, show_txt, msg):
     print(messages)
     print(messages[0])
     del_button(sender_txt)
+
+#function for functionality of chat side buttons
+def chat_buttons():
+    window_chat_2 = tk.Tk()
+    window_chat_2.title("Chat 2")
+    window_chat_2.geometry('400x400')
+    print("hello")
+    # window.lift()
+    window.lower()
     
 
 #FIGURE OUT HOW TO ALIGN/FORMAT BUTTONS
@@ -43,11 +54,13 @@ window.geometry('400x400')
 
 
 
+
+
 # label1 = tk.Label(master=frame, text="I'm at (0, 0)", bg="red")
 # label1.place(x=335, y=250)
 
 #side chat buttons
-chat_1 = tk.Button(text= "Chat 1")
+chat_1 = tk.Button(text= "chat 1", command= lambda: chat_buttons())
 chat_1.place(x=0, y=0, height = 50, width = 100)
 
 chat_2 = tk.Button(text= "Chat 2")
