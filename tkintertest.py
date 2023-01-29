@@ -6,7 +6,23 @@
 import tkinter as tk
 from datetime import datetime
 import keyboard
+from ttkthemes import ThemedTk
 
+
+from tkinter import ttk  # Normal Tkinter.* widgets are not themed!
+from ttkthemes import ThemedTk
+
+# Creating an app with a theme: this is the ThemedTk object
+# The theme will applied to every ttk widget in your application
+window = ThemedTk(theme='Adapta')
+
+ttk.Button(window, text="Quit", command=window.destroy).pack()
+# Get the available themes
+# print(window.get_themes())
+
+# Creating a themed button
+# button = tk.Button(window, text="Quit", command=window.destroy)
+# button.pack(pady=20)
 
 
 # print("time:", time)
@@ -84,9 +100,7 @@ def enter_press(event):
 #FIGURE OUT HOW TO ALIGN/FORMAT BUTTONS
 
 
-
-window = tk.Tk()
-window.tk.call("C:\Users\Vincent\Downloads\Azure-ttk-theme-main\Azure-ttk-theme-main" , "azure.tcl") 
+# window = tk.Tk()
 window.title("Chat 1")
 window.geometry('400x400')
 
@@ -101,28 +115,28 @@ window.geometry('400x400')
 #side chat buttons
 
 
-chat_1= tk.Button(text= "Chat 1")
+chat_1= ttk.Button(text= "Chat 1")
 chat_1.place(x=0, y=0, height = 50, width = 100)
 
-chat_2 = tk.Button(text= "Chat 2")
+chat_2 = ttk.Button(text= "Chat 2")
 chat_2.place(x=0, y=50, height = 50, width = 100)
 
-chat_3 = tk.Button(text= "Chat 3")
+chat_3 = ttk.Button(text= "Chat 3")
 chat_3.place(x=0, y=100, height = 50, width = 100)
 
-chat_4 = tk.Button(text= "Chat 4")
+chat_4 = ttk.Button(text= "Chat 4")
 chat_4.place(x=0, y=150, height = 50, width = 100)
 
-chat_5 = tk.Button(text= "Chat 5")
+chat_5 = ttk.Button(text= "Chat 5")
 chat_5.place(x=0, y=200, height = 50, width = 100)
 
-chat_6 = tk.Button(text= "Chat 6")
+chat_6 = ttk.Button(text= "Chat 6")
 chat_6.place(x=0, y=250, height = 50, width = 100)
 
-chat_7 = tk.Button(text= "Chat 7")
+chat_7 = ttk.Button(text= "Chat 7")
 chat_7.place(x=0, y=300, height = 50, width = 100)
 
-chat_8 = tk.Button(text= "Chat 8")
+chat_8 = ttk.Button(text= "Chat 8")
 chat_8.place(x=0, y=350, height = 50, width = 100)
 
 # chat_2 = tk.Button(text= "Chat 1").grid(row=1)
@@ -150,7 +164,7 @@ text_box.place(x=100, y=350, height = 40, width = 250)
 # delete.place(x=300,y=350, height = 50, width = 100)
 
 #send button
-send = tk.Button(text= "Send", command= lambda: send_text(text_box, chat_history, messages))
+send = ttk.Button(text= "Send", command= lambda: send_text(text_box, chat_history, messages))
 send.place(x=350, y=350, height = 50, width = 50)
 print(text_box)
 
