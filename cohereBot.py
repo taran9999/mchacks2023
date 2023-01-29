@@ -32,3 +32,6 @@ def classification(prompt):
 def summarize(prompt):
   response = co.generate(model='xlarge', prompt=prompt, max_tokens=40, temperature=0.8)
   return response.generations[0].text
+
+
+print(summarize('Jake: Hey Vincent how are you? \n Vincent: I\'m good, how are you? \n Jake: I just finished walking my dog at 4pm, he seemed really happy which made me happy too \n Vincent: Wow1'))

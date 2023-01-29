@@ -19,7 +19,7 @@ def receive():
                 client.send(nickname.encode())
             elif message == '/summarize':
                 pass
-            elif message == '/sentiment':
+            elif message == '/classify':
                 pass
             else:
                 print(message)
