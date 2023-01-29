@@ -8,6 +8,7 @@ from datetime import datetime
 import keyboard
 
 
+
 # print("time:", time)
 # print(type(time))
 
@@ -85,8 +86,10 @@ def enter_press(event):
 
 
 window = tk.Tk()
+window.tk.call('C:/Users/Vincent/Downloads/Azure-ttk-theme-main.zip/Azure-ttk-theme-main/theme' , 'azure.tcl') 
 window.title("Chat 1")
 window.geometry('400x400')
+
 
 
 
