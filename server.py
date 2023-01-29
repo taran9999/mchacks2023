@@ -28,10 +28,13 @@ def handle(client):
 
             if message[0] == '/' and len(messages) == 0:
                 message = 'There are no messages to call the command on'
-                broadcast(message.encode())
+                client.send(message.encode())
             elif message == '/classify':
                 classify = cohereBot.classification(messages[-1])
                 client.send(classify.encode())
+            elif message == '/summarize':
+                summary = cohereBot.summarize('\n'.join(messages))
+                client.send(summary.encode())
             else:
                 nickname = nicknames[clients.index(client)]
                 message = nickname + ': ' + message

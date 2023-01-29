@@ -29,5 +29,6 @@ def classification(prompt):
 
 #classification("I mean I can wait to do them if that's what you wanna")
 
-test = []
-print(test[-1])
+def summarize(prompt):
+  response = co.generate(model='xlarge', prompt=prompt, max_tokens=40, temperature=0.8)
+  return response.generations[0].text
