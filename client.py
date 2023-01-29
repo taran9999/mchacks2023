@@ -31,7 +31,7 @@ def receive():
 
 def write():
     while True:
-        message = nickname + ': ' + input()
+        message = input()
         client.send(message.encode())
 
 recieve_thread = threading.Thread(target=receive)

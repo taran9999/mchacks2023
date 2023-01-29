@@ -25,12 +25,15 @@ def broadcast(message):
 def handle(client):
     while True:
         try:
-            message = client.recv(1024)
-            if message.decode() == '/sentiment':
+            message = client.recv(1024).decode().strip()
+
+            if message == '/classify':
                 classify = cohereBot.classification(messages[-1])
                 client.send(classify.encode())
-                
-            broadcast(message)
+            else:
+                nickname = nicknames[clients.index(client)]
+                message = nickname + ': ' + message
+                broadcast(message.encode())
         except:
             index = clients.index(client)
             clients.remove(index)
