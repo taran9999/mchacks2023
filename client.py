@@ -1,4 +1,5 @@
 import socket
+import sys
 import threading
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -27,6 +28,7 @@ def receive():
         except:
             print("An error has occured while receiving a message")
             client.close()
+            sys.exit()
             break
 
 def write():
