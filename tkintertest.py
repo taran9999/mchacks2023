@@ -5,7 +5,7 @@
 
 import tkinter as tk
 from datetime import datetime
-
+import keyboard
 
 
 # print("time:", time)
@@ -125,6 +125,11 @@ send.place(x=350, y=350, height = 50, width = 50)
 chat_history = tk.Text()
 chat_history.place(x=100, y=0, height = 350, width = 300)
 chat_history.config(state= tk.DISABLED)
+
+#fix enter check
+if keyboard.is_pressed("Enter"):
+    print("enter")
+    send_text(text_box,chat_history,messages)
 
 # send.place(x=200, y=350, height = 50, width = 100)
 
