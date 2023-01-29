@@ -19,7 +19,6 @@ messages = []
 
 def broadcast(message):
     for client in clients:
-        messages.append(message.decode())
         client.send(message)
 
 def handle(client):
@@ -33,6 +32,8 @@ def handle(client):
             else:
                 nickname = nicknames[clients.index(client)]
                 message = nickname + ': ' + message
+                messages.append(message)
+
                 broadcast(message.encode())
         except:
             index = clients.index(client)

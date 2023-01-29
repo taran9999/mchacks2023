@@ -2,7 +2,7 @@ import cohere
 from cohere.classify import Example
 co = cohere.Client('ULmoY0tufNb8CTEEPUh8ZU8Q6MPTFYdXgW6LaU3K')
 
-def classification(str):
+def classification(prompt):
   examples = [
     Example("Can you get that done by tonight?", "professional"),
     Example("Make sure to submit your report by the weekend", "professional"),
@@ -21,9 +21,9 @@ def classification(str):
     Example("Made wonton soup the other day", "casual"),
   ]
 
-  response = co.classify(model='large', inputs=[str], examples=examples)
+  response = co.classify(model='large', inputs=[prompt], examples=examples)
 
-  result = 'This message is '+ response.classifications[0].prediction + 'with ' + response.classifications[0].confidence + 'confidence'
+  result = 'This message is '+ response.classifications[0].prediction + ' with ' + str(response.classifications[0].confidence) + ' confidence'
   return result
   #print(response.classifications[0].prediction)
 

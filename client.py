@@ -4,7 +4,7 @@ import threading
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 messages = []
 
-host_ip = input("Enter Sever IP: ")
+host_ip = input("Enter Server IP: ")
 host_port = int(input("Port: "))
 client.connect((host_ip, host_port))
 
