@@ -86,7 +86,7 @@ def enter_press(event):
 
 
 window = tk.Tk()
-window.tk.call('C:/Users/Vincent/Downloads/Azure-ttk-theme-main.zip/Azure-ttk-theme-main/theme' , 'azure.tcl') 
+window.tk.call("C:\Users\Vincent\Downloads\Azure-ttk-theme-main\Azure-ttk-theme-main" , "azure.tcl") 
 window.title("Chat 1")
 window.geometry('400x400')
 
