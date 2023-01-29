@@ -39,11 +39,12 @@ def summarize(prompt):
   Mike: Hey, I need help on this physics question. \n George: What have you tried so far? \n Mike: I set the static energy equal to the kinetic energy. \n George: Bro that's so wrong I don't know how to help you.
   Summary: Mike asks George for help on a physics question but George is unable to help.
   --
-  
+  Professor: Why are you late? \n Student: I was helping my mom catch the dog, which was running after a squirrel in my backyard when all of a sudden, the neighbor's kid started laughing. \n Professor: This is not a valid excuse for not doing your homework!
+  Summary: The Student explains to the Professor that he was late because he was trying to catch his dog when his neighbor's kid laughed but the Professor did not accept this excuse. 
   """
   bot_prompt = buffer_prompt + prompt + "\nSummary: "
   response = co.generate(model='xlarge', prompt=bot_prompt, max_tokens=50, temperature=0.8, end_sequences=["--"])
   return response.generations[0].text
 
 
-print(summarize('Jake: Hey Vincent how are you? \n Vincent: I\'m good, how are you? \n Jake: I just finished walking my dog at 4pm, he seemed really happy which made me happy too \n Vincent: Wow!'))
+print(summarize(''))
