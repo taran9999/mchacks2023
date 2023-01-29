@@ -1,5 +1,7 @@
 import socket
 import threading
+import cohereBot
+
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host_name = socket.gethostname()
@@ -17,6 +19,7 @@ messages = []
 
 def broadcast(message):
     for client in clients:
+        messages.append(message.decode())
         client.send(message)
 
 def handle(client):
@@ -24,7 +27,9 @@ def handle(client):
         try:
             message = client.recv(1024)
             if message.decode() == '/sentiment':
-                pass
+                classify = cohereBot.classification(messages[-1])
+                client.send(classify.encode())
+                
             broadcast(message)
         except:
             index = clients.index(client)
