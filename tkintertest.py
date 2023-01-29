@@ -33,16 +33,14 @@ import tkinter.ttk as ttk
 messages = []
 
 
-def print_test():
-    print("hello")
     
 def get_text(txt_box):
-    print(txt_box.get("1.0", tk.END))
+    return txt_box.get("1.0", tk.END)
 
-def del_button(txt_box):
+def clear_text(txt_box):
     txt_box.delete("1.0", tk.END)
     
-def send_text(sender_txt, show_txt, msg):
+def send_text(str_message, show_txt, msg):
     text = sender_txt.get("1.0",tk.END)
     if text.strip() != "":
         chat_history.config(state= tk.NORMAL)
@@ -50,11 +48,24 @@ def send_text(sender_txt, show_txt, msg):
         time = now.strftime("%H:%M:%S")
         #adds each text that is sent via send button to list
         messages.append(text)
-        show_txt.insert(tk.END,time + " " + messages[len(messages)-1])
+        show_txt.insert(tk.END,time + " " + str_message)
         print(messages)
         # print(messages[0])
-        del_button(sender_txt)
+        clear_text(sender_txt)
         chat_history.config(state= tk.DISABLED)
+
+def send_message():
+    msg = get_text(text_box)
+    clear_text(text_box)
+    return msg
+
+def display_message(message):
+    chat_history.config(state= tk.NORMAL)
+    chat_history.insert(tk.END,time + " " + str_message)
+    chat_history.config(state= tk.DISABLED)
+
+
+
 
 def enter_send_text(text, show_txt, msg):
     text += "\n"
@@ -68,14 +79,14 @@ def enter_send_text(text, show_txt, msg):
         show_txt.insert(tk.END,time + " " + messages[len(messages)-1])
         # print(messages)
         # print(messages[0])
-        del_button(text_box)
+        clear_text(text_box)
         chat_history.config(state= tk.DISABLED)
 
 
 #function for functionality of chat side buttons
 def chat_buttons(sender_txt, show_txt, btn_txt):
-    del_button(sender_txt)
-    del_button(show_txt)
+    clear_text(sender_txt)
+    clear_text(show_txt)
     window.title(btn_txt)
     print(messages)
     # window_chat_2 = tk.Tk()
@@ -167,7 +178,7 @@ text_box.place(x=10, y=350, height = 50, width = 340)
 # text_box.bind("<Key>", click)
 
 
-# delete = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
+# delete = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": clear_text(text_box))
 # delete.place(x=350, y=350, height = 25, width = 50)
 
 # delete.place(x=300,y=350, height = 50, width = 100)
