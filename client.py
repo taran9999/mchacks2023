@@ -15,7 +15,7 @@ def receive():
             message = client.recv(1024).decode()
 
             if message == 'NICK':
-                pass
+                client.send(nickname.encode())
             else:
                 print(message)
         except:
