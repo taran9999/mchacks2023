@@ -22,6 +22,7 @@ print("Your IP: " + IP_address)
 
 # takes second argument from command prompt as port number
 Port = int(input("Enter server's port: "))
+print("Port set to: " + Port)
 
 """
 binds the server to an entered IP address and at the
@@ -29,6 +30,7 @@ specified port number.
 The client must be aware of these parameters
 """
 server.bind((IP_address, Port))
+print("Binding successful")
 
 """
 listens for 100 active connections. This number can be
