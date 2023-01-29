@@ -16,26 +16,26 @@ style.theme_use("azure")
 window.title("Start Menu")
 
 nickname_text = tk.Text()
-nickname_text.place(x=20, y=100, height = 50, width = 100)
+nickname_text.place(relx=0.05, rely=0.5, relheight = 0.25, relwidth = 0.25)
 
-nickname_label = tk.Label(text= "Nickname", fg = "black", bg = "white")
-nickname_label.place(x=20, y=40, height = 50, width = 100)
+nickname_label = tk.Label(text= "Nickname", fg = "black", bg = "white", font=15)
+nickname_label.place(relx=0.05, rely=0.2, relheight=0.25, relwidth=0.25)
 
 port_text = tk.Text()
-port_text.place(x=140, y=100, height = 50, width = 100)
+port_text.place(relx=0.35, rely=0.5, relheight=0.25, relwidth = 0.25)
 
-port_label = tk.Label(text= "Port", fg = "black", bg = "white")
-port_label.place(x=140, y=40, height = 50, width = 100)
+port_label = tk.Label(text= "Port", fg = "black", bg = "white", font=15)
+port_label.place(relx=0.35, rely=0.2, relheight = 0.25, relwidth = 0.25)
 
 ip_text = tk.Text()
-ip_text.place(x=260, y=100, height = 50, width = 100)
+ip_text.place(relx=0.65, rely=0.5, relheight=0.25, relwidth=0.25)
 
-ip_label = tk.Label(text= "IP", fg = "black", bg = "white")
-ip_label.place(x=260, y=40, height = 50, width = 100)
+ip_label = tk.Label(text= "IP", fg = "black", bg = "white", font=15)
+ip_label.place(relx=0.65, rely=0.2, relheight = 0.25, relwidth = 0.25)
 
-#button to connect
-connect_button = tk.Button(text="Connect")
-connect_button.place(x=140, y = 160, height = 30, width = 100 )
+# #button to connect
+connect_button = tk.Button(text="Connect", font = 15)
+connect_button.place(relx=0.35, rely = 0.8, relheight = 0.15, relwidth=0.25)
 
 
 window.mainloop()
