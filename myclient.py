@@ -1,7 +1,15 @@
 
-
+import tkinter
 import socket
 import threading
+
+
+"""entry_field.bind("<Return>", send)
+entry_field.pack()
+send_button = tkinter.Button(top, text="Send", command=send)
+send_button.pack()"""
+
+
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -15,6 +23,7 @@ def receive():
     while True:
         try:
             message = client.recv(1024).decode()
+           
 
             if message == 'NICK':
                 pass
@@ -27,6 +36,8 @@ def receive():
 
 def write():
     while True:
+        
+
         message = nickname + ': ' + input()
         client.send(message.encode())
 
@@ -35,3 +46,4 @@ recieve_thread.start()
 
 write_thread = threading.Thread(target=write)
 write_thread.start()
+
