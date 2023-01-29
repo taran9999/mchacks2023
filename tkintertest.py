@@ -108,7 +108,7 @@ text_box.place(x=100, y=350, height = 40, width = 250)
 # delete.place(x=300,y=350, height = 50, width = 100)
 
 #send button
-send = tk.Button(text= "send", command= lambda: send_text(text_box, chat_history, messages))
+send = tk.Button(text= "Send", command= lambda: send_text(text_box, chat_history, messages))
 send.place(x=350, y=350, height = 50, width = 50)
 
 #label for chat history
