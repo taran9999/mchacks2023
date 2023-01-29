@@ -35,10 +35,13 @@ while True:
 	read_sockets,write_socket, error_socket = select.select(sockets_list,[],[])
 	for socks in read_sockets:
 		if socks == server:
+			print("test")
 			message = socks.recv(2048)
+			print("test")
 			print(message)
 		else:
-			message = sys.stdin.readline()
+
+			message = input()
 			server.send(message.encode())
 			sys.stdout.write("<You>")
 			sys.stdout.write(message)

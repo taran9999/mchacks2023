@@ -22,7 +22,7 @@ print("Your IP: " + IP_address)
 
 # takes second argument from command prompt as port number
 Port = int(input("Enter server's port: "))
-print("Port set to: " + Port)
+print("Port set to: " + str(Port))
 
 """
 binds the server to an entered IP address and at the
