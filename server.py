@@ -60,7 +60,7 @@ def receive():
         clients.append(client)
 
         print('Nickname of the client is: ' + nickname)
-        broadcast((nickname + 'has joined the chat').encode())
+        broadcast((nickname + ' has joined the chat').encode())
         client.send('connected to the server'.encode())
 
         thread = threading.Thread(target=handle, args=(client, ))

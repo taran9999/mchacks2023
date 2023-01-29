@@ -100,8 +100,6 @@ window.bind('<Return>', enter_press)
 
 def message_history_updater():
     previous_len = len(client.messages)
-    print(previous_len)
-    print(len(client.messages))
 
     while True:
         if previous_len != len(client.messages):
