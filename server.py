@@ -13,6 +13,7 @@ server_socket.listen()
 
 clients = []
 nicknames = []
+messages = []
 
 def broadcast(message):
     for client in clients:
@@ -22,6 +23,8 @@ def handle(client):
     while True:
         try:
             message = client.recv(1024)
+            if message.decode() == '/sentiment':
+                pass
             broadcast(message)
         except:
             index = clients.index(client)

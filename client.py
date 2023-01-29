@@ -2,6 +2,7 @@ import socket
 import threading
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+messages = []
 
 host_ip = input("Enter Sever IP: ")
 host_port = int(input("Port: "))
@@ -16,8 +17,13 @@ def receive():
 
             if message == 'NICK':
                 client.send(nickname.encode())
+            elif message == '/summarize':
+                pass
+            elif message == '/sentiment':
+                pass
             else:
                 print(message)
+                messages.append(message)
         except:
             print("An error has occured while receiving a message")
             client.close()
