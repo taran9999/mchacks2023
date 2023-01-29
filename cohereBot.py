@@ -47,4 +47,3 @@ def summarize(prompt):
   return response.generations[0].text
 
 
-print(summarize(''))

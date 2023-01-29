@@ -26,7 +26,7 @@ def handle(client):
         try:
             message = client.recv(1024).decode().strip()
 
-            if message[0] == '/' and len(messages) == 0:
+            if len(messages) == 0 and message[0] == '/':
                 message = 'There are no messages to call the command on'
                 client.send(message.encode())
             elif message == '/classify':

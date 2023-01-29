@@ -1,6 +1,7 @@
 import socket
 import sys
 import threading
+import clientController
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 messages = []
@@ -10,6 +11,7 @@ host_port = int(input("Port: "))
 client.connect((host_ip, host_port))
 
 nickname = input('Enter Nickname: ')
+
 
 def receive():
     while True:
@@ -23,7 +25,7 @@ def receive():
             elif message == '/classify':
                 pass
             else:
-                print(message)
+                #clientGUI.display_message(message)
                 messages.append(message)
         except:
             print("An error has occured while receiving a message")
@@ -33,11 +35,17 @@ def receive():
 
 def write():
     while True:
-        message = input()
+        clientController.event.wait()
+
+        message = clientController.getMessage()
         client.send(message.encode())
+        clientController.event.clear()
 
 recieve_thread = threading.Thread(target=receive)
 recieve_thread.start()
 
 write_thread = threading.Thread(target=write)
 write_thread.start()
+
+
+
