@@ -4,7 +4,7 @@ import threading
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 host_ip = input("Enter Sever IP: ")
-host_port = input("Port: ")
+host_port = int(input("Port: "))
 client.connect((host_ip, host_port))
 
 nickname = input('Enter Nickname: ')
