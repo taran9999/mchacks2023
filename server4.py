@@ -17,7 +17,8 @@ server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 
 # takes the first argument from command prompt as IP address
-IP_address = input("Enter Server's IP address: ")
+IP_address = socket.gethostbyname(socket.gethostname())
+print("Your IP: " + IP_address)
 
 # takes second argument from command prompt as port number
 Port = int(input("Enter server's port: "))
