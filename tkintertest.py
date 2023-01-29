@@ -1,5 +1,7 @@
 #later on make gui responsive and resizable
-#chat side buttons to go to new pages
+#chat side buttons to go to new pages, kinda like other tabs (instead of opening a new window), each with still full chat functionality,
+#while stil being able to go back to other tabs, having data there saved
+#disable typing in the text field that shows text
 
 import tkinter as tk
 from datetime import datetime
@@ -23,7 +25,7 @@ def del_button(txt_box):
     txt_box.delete("1.0", tk.END)
     
 def send_text(sender_txt, show_txt, msg):
-
+    chat_history.config(state= tk.NORMAL)
     now = datetime.now() # current date and time
     time = now.strftime("%H:%M:%S")
     #adds each text that is sent via send button to list
@@ -32,15 +34,21 @@ def send_text(sender_txt, show_txt, msg):
     print(messages)
     print(messages[0])
     del_button(sender_txt)
+    chat_history.config(state= tk.DISABLED)
 
 #function for functionality of chat side buttons
-def chat_buttons():
-    window_chat_2 = tk.Tk()
-    window_chat_2.title("Chat 2")
-    window_chat_2.geometry('400x400')
-    print("hello")
+def chat_buttons(sender_txt, show_txt, btn_txt):
+    del_button(sender_txt)
+    del_button(show_txt)
+    window.title(btn_txt)
+    print(messages)
+    # window_chat_2 = tk.Tk()
+    # window_chat_2.title("Chat 2")
+    # window_chat_2.geometry('400x400')
+    #print("hello")
+
     # window.lift()
-    window.lower()
+    # window.lower()
     
 
 #FIGURE OUT HOW TO ALIGN/FORMAT BUTTONS
@@ -48,7 +56,7 @@ def chat_buttons():
 
 
 window = tk.Tk()
-window.title("Chat")
+window.title("Chat 1")
 window.geometry('400x400')
 
 
@@ -60,29 +68,31 @@ window.geometry('400x400')
 # label1.place(x=335, y=250)
 
 #side chat buttons
-chat_2 = tk.Button(text= "Chat 2", command= lambda: chat_buttons())
-chat_2.place(x=0, y=0, height = 50, width = 100)
+
+
+chat_1= tk.Button(text= "Chat 1")
+chat_1.place(x=0, y=0, height = 50, width = 100)
+
+chat_2 = tk.Button(text= "Chat 2")
+chat_2.place(x=0, y=50, height = 50, width = 100)
 
 chat_3 = tk.Button(text= "Chat 3")
-chat_3.place(x=0, y=50, height = 50, width = 100)
+chat_3.place(x=0, y=100, height = 50, width = 100)
 
 chat_4 = tk.Button(text= "Chat 4")
-chat_4.place(x=0, y=100, height = 50, width = 100)
+chat_4.place(x=0, y=150, height = 50, width = 100)
 
 chat_5 = tk.Button(text= "Chat 5")
-chat_5.place(x=0, y=150, height = 50, width = 100)
+chat_5.place(x=0, y=200, height = 50, width = 100)
 
 chat_6 = tk.Button(text= "Chat 6")
-chat_6.place(x=0, y=200, height = 50, width = 100)
+chat_6.place(x=0, y=250, height = 50, width = 100)
 
 chat_7 = tk.Button(text= "Chat 7")
-chat_7.place(x=0, y=250, height = 50, width = 100)
+chat_7.place(x=0, y=300, height = 50, width = 100)
 
 chat_8 = tk.Button(text= "Chat 8")
-chat_8.place(x=0, y=300, height = 50, width = 100)
-
-chat_9 = tk.Button(text= "Chat 9")
-chat_9.place(x=0, y=350, height = 50, width = 100)
+chat_8.place(x=0, y=350, height = 50, width = 100)
 
 # chat_2 = tk.Button(text= "Chat 1").grid(row=1)
 # chat_3 = tk.Button(text= "Chat 2").grid(row=2)
@@ -114,6 +124,7 @@ send.place(x=350, y=350, height = 50, width = 50)
 #label for chat history
 chat_history = tk.Text()
 chat_history.place(x=100, y=0, height = 350, width = 300)
+chat_history.config(state= tk.DISABLED)
 
 # send.place(x=200, y=350, height = 50, width = 100)
 
