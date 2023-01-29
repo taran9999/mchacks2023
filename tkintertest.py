@@ -1,5 +1,12 @@
 #figure out how to make it so text field doesnt take up entire screen
 import tkinter as tk
+from datetime import datetime
+
+
+
+# print("time:", time)
+# print(type(time))
+
 
 messages = []
 
@@ -13,12 +20,16 @@ def get_text(txt_box):
 def del_button(txt_box):
     txt_box.delete("1.0", tk.END)
     
-def send_text(txt_box, msg):
+def send_text(sender_txt, show_txt, msg):
+
+    now = datetime.now() # current date and time
+    time = now.strftime("%H:%M:%S")
     #adds each text that is sent via send button to list
-    messages.append(txt_box.get("1.0",tk.END))
+    messages.append(sender_txt.get("1.0",tk.END))
+    show_txt.insert(tk.END,messages[len(messages)-1] + time + "\n")
     print(messages)
     print(messages[0])
-    del_button(txt_box)
+    del_button(sender_txt)
     
 
 #FIGURE OUT HOW TO ALIGN/FORMAT BUTTONS
@@ -75,16 +86,21 @@ chat_8.place(x=0, y=350, height = 50, width = 100)
 # tbox1.place(x=50, y=50, height=10, width=10)
 #text field
 text_box = tk.Text()
-text_box.place(x=100, y=0, height = 350, width = 300)
+text_box.place(x=100, y=350, height = 40, width = 250)
 
 
-delete = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
-delete.place(x=200, y=350, height = 50, width = 100)
+# delete = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
+# delete.place(x=350, y=350, height = 25, width = 50)
 
 # delete.place(x=300,y=350, height = 50, width = 100)
 
-send = tk.Button(text= "send", command= lambda: send_text(text_box, messages))
-send.place(x=300, y=350, height = 50, width = 100)
+#send button
+send = tk.Button(text= "send", command= lambda: send_text(text_box, chat_history, messages))
+send.place(x=350, y=350, height = 50, width = 50)
+
+#label for chat history
+chat_history = tk.Text()
+chat_history.place(x=100, y=0, height = 350, width = 300)
 
 # send.place(x=200, y=350, height = 50, width = 100)
 
