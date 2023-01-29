@@ -60,29 +60,29 @@ window.geometry('400x400')
 # label1.place(x=335, y=250)
 
 #side chat buttons
-chat_1 = tk.Button(text= "chat 1", command= lambda: chat_buttons())
-chat_1.place(x=0, y=0, height = 50, width = 100)
-
-chat_2 = tk.Button(text= "Chat 2")
-chat_2.place(x=0, y=50, height = 50, width = 100)
+chat_2 = tk.Button(text= "Chat 2", command= lambda: chat_buttons())
+chat_2.place(x=0, y=0, height = 50, width = 100)
 
 chat_3 = tk.Button(text= "Chat 3")
-chat_3.place(x=0, y=100, height = 50, width = 100)
+chat_3.place(x=0, y=50, height = 50, width = 100)
 
 chat_4 = tk.Button(text= "Chat 4")
-chat_4.place(x=0, y=150, height = 50, width = 100)
+chat_4.place(x=0, y=100, height = 50, width = 100)
 
 chat_5 = tk.Button(text= "Chat 5")
-chat_5.place(x=0, y=200, height = 50, width = 100)
+chat_5.place(x=0, y=150, height = 50, width = 100)
 
 chat_6 = tk.Button(text= "Chat 6")
-chat_6.place(x=0, y=250, height = 50, width = 100)
+chat_6.place(x=0, y=200, height = 50, width = 100)
 
 chat_7 = tk.Button(text= "Chat 7")
-chat_7.place(x=0, y=300, height = 50, width = 100)
+chat_7.place(x=0, y=250, height = 50, width = 100)
 
 chat_8 = tk.Button(text= "Chat 8")
-chat_8.place(x=0, y=350, height = 50, width = 100)
+chat_8.place(x=0, y=300, height = 50, width = 100)
+
+chat_9 = tk.Button(text= "Chat 9")
+chat_9.place(x=0, y=350, height = 50, width = 100)
 
 # chat_2 = tk.Button(text= "Chat 1").grid(row=1)
 # chat_3 = tk.Button(text= "Chat 2").grid(row=2)
