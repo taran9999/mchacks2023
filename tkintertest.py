@@ -25,16 +25,34 @@ def del_button(txt_box):
     txt_box.delete("1.0", tk.END)
     
 def send_text(sender_txt, show_txt, msg):
-    chat_history.config(state= tk.NORMAL)
-    now = datetime.now() # current date and time
-    time = now.strftime("%H:%M:%S")
-    #adds each text that is sent via send button to list
-    messages.append(sender_txt.get("1.0",tk.END))
-    show_txt.insert(tk.END,time + " " + messages[len(messages)-1])
-    print(messages)
-    print(messages[0])
-    del_button(sender_txt)
-    chat_history.config(state= tk.DISABLED)
+    text = sender_txt.get("1.0",tk.END)
+    if text.strip() != "":
+        chat_history.config(state= tk.NORMAL)
+        now = datetime.now() # current date and time
+        time = now.strftime("%H:%M:%S")
+        #adds each text that is sent via send button to list
+        messages.append(text)
+        show_txt.insert(tk.END,time + " " + messages[len(messages)-1])
+        print(messages)
+        # print(messages[0])
+        del_button(sender_txt)
+        chat_history.config(state= tk.DISABLED)
+
+def enter_send_text(text, show_txt, msg):
+    text += "\n"
+    if text != "\n":
+        chat_history.config(state= tk.NORMAL)
+        now = datetime.now() # current date and time
+        time = now.strftime("%H:%M:%S")
+        #adds each text that is sent via send button to list
+        messages.append(text)
+        print(messages)
+        show_txt.insert(tk.END,time + " " + messages[len(messages)-1])
+        # print(messages)
+        # print(messages[0])
+        del_button(text_box)
+        chat_history.config(state= tk.DISABLED)
+
 
 #function for functionality of chat side buttons
 def chat_buttons(sender_txt, show_txt, btn_txt):
@@ -49,7 +67,18 @@ def chat_buttons(sender_txt, show_txt, btn_txt):
 
     # window.lift()
     # window.lower()
-    
+
+def enter_press(event):
+    text_word = text_box.get("1.0",tk.END)
+    text_word = text_word.strip()
+    # print(text_word.strip())
+    enter_send_text(text_word, chat_history, messages)
+    # print(type(text_box))
+    # print(text_box)
+
+    # send_text(text_box-"\n",chat_history,messages)
+    #issue w extra line
+
 
 #FIGURE OUT HOW TO ALIGN/FORMAT BUTTONS
 
@@ -58,7 +87,6 @@ def chat_buttons(sender_txt, show_txt, btn_txt):
 window = tk.Tk()
 window.title("Chat 1")
 window.geometry('400x400')
-
 
 
 
@@ -110,6 +138,7 @@ chat_8.place(x=0, y=350, height = 50, width = 100)
 #text field
 text_box = tk.Text()
 text_box.place(x=100, y=350, height = 40, width = 250)
+# text_box.bind("<Key>", click)
 
 
 # delete = tk.Button(text= "delete", command= lambda t= "Button-1 Clicked": del_button(text_box))
@@ -120,6 +149,7 @@ text_box.place(x=100, y=350, height = 40, width = 250)
 #send button
 send = tk.Button(text= "Send", command= lambda: send_text(text_box, chat_history, messages))
 send.place(x=350, y=350, height = 50, width = 50)
+print(text_box)
 
 #label for chat history
 chat_history = tk.Text()
@@ -127,9 +157,13 @@ chat_history.place(x=100, y=0, height = 350, width = 300)
 chat_history.config(state= tk.DISABLED)
 
 #fix enter check
-if keyboard.is_pressed("Enter"):
-    print("enter")
-    send_text(text_box,chat_history,messages)
+# if messages[-1]
+
+# if text_box:
+#     print("enter")
+#     send_text(text_box,chat_history,messages)
+
+# print("helo" + text_box.get("1.0",tk.END))
 
 # send.place(x=200, y=350, height = 50, width = 100)
 
@@ -141,6 +175,7 @@ if keyboard.is_pressed("Enter"):
 
 
 # text_box.get("1.0")
+window.bind('<Return>', enter_press)
 
 window.mainloop()
 
