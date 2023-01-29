@@ -33,7 +33,9 @@ ip_text.place(x=260, y=100, height = 50, width = 100)
 ip_label = tk.Label(text= "IP", fg = "black", bg = "white")
 ip_label.place(x=260, y=40, height = 50, width = 100)
 
-
+#button to connect
+connect_button = tk.Button(text="Connect")
+connect_button.place(x=140, y = 160, height = 30, width = 100 )
 
 
 window.mainloop()
