@@ -80,7 +80,7 @@ style = ttk.Style(window)
 
 window.tk.call("source", "azure dark/azure dark.tcl")
 style.theme_use("azure")
-window.title("Chat 1")
+window.title("Chat")
 
 # text field
 text_box = tk.Text()
